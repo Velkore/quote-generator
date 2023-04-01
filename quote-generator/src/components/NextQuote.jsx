@@ -1,8 +1,10 @@
+import Button from "react-bootstrap/Button";
+
 function NextQuote(props) {
   return (
-    <button className="btn btn-primary" onClick={props.handleClick}>
-      New Quote
-    </button>
+    <Button variant="warning" className="mt-4" onClick={props.handleClick}>
+      Next
+    </Button>
   );
 }
 
