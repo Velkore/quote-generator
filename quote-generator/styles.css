@@ -2,3 +2,8 @@ body {
     background-image: url('./assets/background.jpg');
     background-color: #3a3939;
 }
+
+h1 {
+    text-align: center;
+    text-decoration:underline;
+}
