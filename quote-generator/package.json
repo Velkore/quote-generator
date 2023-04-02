@@ -1,5 +1,6 @@
 {
   "name": "quote-generator",
+  "proxy": "http://localhost:5000",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +11,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.0-alpha2",
-    "express": "^4.18.2",
+    "@popperjs/core": "2.11.7",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0"
