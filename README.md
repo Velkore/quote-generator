@@ -1,28 +1,72 @@
 # Quote Generator
 
-This is a repository for a Quote Generator application. It includes dependencies such as Bootstrap, Express, React and React-DOM. The app is built using Vite for development and build.
+This is a web app that generates random quotes and allows users to store and manage custom quotes in a local database.
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/[username]/quote-generator.git`
-2. Install dependencies: `npm install`
+To run this app, you need to have Node.js and npm (Node Package Manager) installed on your computer.
+
+1. Clone the repository:
+
+```
+git clone https://github.com/Velkore/quote-generator.git
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
 
 ## Usage
 
-- Run the app in dev mode: `npm run dev`
-- Build the app for production: `npm run build`
-- Preview the production build: `npm run preview`
+To start the development server, run:
+
+```
+npm run dev
+```
+
+This starts the app at `http://localhost:3000`. The app will automatically reload if you make any changes to the source code.
+
+To build the app for production, run:
+
+```
+npm run build
+```
+
+This creates a `dist` directory with the built app files.
+
+To preview the built app, run:
+
+```
+npm run preview
+```
+
+This starts a local server that serves the built app.
 
 ## Dependencies
 
-- [Bootstrap](https://getbootstrap.com/) - CSS framework
-- [Express](https://expressjs.com/) - Web application framework
-- [React](https://reactjs.org/) - JavaScript library for building user interfaces
-- [React-DOM](https://reactjs.org/docs/react-dom.html) - React package for working with the DOM
+This app has the following dependencies:
+
+- bootstrap
+- @popperjs/core
+- react
+- react-bootstrap
+- react-dom
+
+These dependencies are installed automatically when you run `npm install`.
 
 ## Dev Dependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite/tree/master/packages/plugin-react) - Vite plugin for React
-- [@types/react](https://www.npmjs.com/package/@types/react) - Typescript types for React
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) - Typescript types for React-DOM
-- [Vite](https://vitejs.dev/) - Build tool for modern web apps (development and build)
+This app has the following dev dependencies:
+
+- @types/react
+- @types/react-dom
+- @vitejs/plugin-react
+- vite
+
+These dev dependencies are installed automatically when you run `npm install`.
+
+## License
+
+This app is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
