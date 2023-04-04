@@ -1,6 +1,5 @@
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import React from "react";
+import { ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import AddQuote from "./AddQuote";
 import DeleteQuote from "./DeleteQuote";
 
@@ -16,8 +15,14 @@ function DropMenu(props) {
         size="lg"
         drop="down-centered"
       >
-        <AddQuote />
-        <DeleteQuote />
+        <AddQuote
+          refreshList={props.customQuotes}
+          setIsSuccess={props.setIsSuccess}
+        />
+        <DeleteQuote
+          backendData={props.backendData}
+          refreshList={props.customQuotes}
+        />
         <Dropdown.Item as="button">Update</Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item as="button" onClick={props.handleClick}>

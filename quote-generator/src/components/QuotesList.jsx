@@ -1,9 +1,10 @@
+import React from "react";
 import { Badge } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 
 function QuotesList(props) {
   const listItems = props.backendData.map((quote) => {
-    console.log(quote);
+    //console.log(quote);
     return (
       <ListGroup.Item key={quote.id} className="bg-dark text-light">
         <strong>{quote.content}</strong>

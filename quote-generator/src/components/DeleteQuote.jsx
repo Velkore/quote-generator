@@ -1,22 +1,29 @@
 import React, { useState } from "react";
-import { Dropdown, Modal, Button, Form } from "react-bootstrap";
+import { Dropdown, Modal, Button, Form, Alert } from "react-bootstrap";
 import axios from "axios";
 
-function DeleteQuote() {
+function DeleteQuote(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [id, setId] = useState("");
+  const [alertMessage, setAlertMessage] = useState(null);
 
   const handleIdChange = (e) => {
     setId(e.target.value);
+    setAlertMessage(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!props.backendData.some((item) => item.id === Number(id))) {
+      setAlertMessage("Quote with that ID does not exist");
+      return;
+    }
     try {
       const res = await axios.delete(`http://localhost:5000/api/quotes/${id}`);
       console.log(res.data);
+      props.refreshList();
       handleClose();
     } catch (err) {
       console.error(err);
@@ -42,9 +49,19 @@ function DeleteQuote() {
                 value={id}
                 onChange={handleIdChange}
                 required
+                min="1"
               />
             </Form.Group>
-            <Button variant="danger" type="submit">
+            {alertMessage && (
+              <Alert
+                variant="danger"
+                onClose={() => setAlertMessage(null)}
+                dismissible
+              >
+                {alertMessage}
+              </Alert>
+            )}
+            <Button variant="danger" type="submit" className="mt-4">
               Delete
             </Button>
           </Form>

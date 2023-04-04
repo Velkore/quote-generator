@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import { Dropdown, Modal, Button, Form } from "react-bootstrap";
+import { Dropdown, Modal, Button, Form, Alert } from "react-bootstrap";
 import axios from "axios";
 
-function AddQuote() {
+function AddQuote(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   const handleSubmit = () => {
     const author = document.getElementById("formItemAuth").value;
     const content = document.getElementById("formItemContent").value;
     axios
       .post("http://localhost:5000/api/quotes", { author, content })
       .then((response) => {
-        console.log(response);
+        //console.log(response);
+        props.refreshList();
       })
       .catch((error) => {
         console.log(error);
       });
     setShow(false);
+    props.setIsSuccess(true);
+    setTimeout(() => props.setIsSuccess(false), 3000);
   };
 
   return (
