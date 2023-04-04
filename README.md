@@ -1,72 +1,59 @@
-# Quote Generator
+# QuoteMe
 
-This is a web app that generates random quotes and allows users to store and manage custom quotes in a local database.
+## Description
+
+This is a full-stack application built with the PERN stack that generates random quotes
+using an external API, as well as allowing users to create and manage their own database
+of custom quotes.
 
 ## Installation
 
-To run this app, you need to have Node.js and npm (Node Package Manager) installed on your computer.
+Before starting, make sure [Node.js](https://nodejs.org/en/) is installed on your computer.
 
-1. Clone the repository:
-
-```
-git clone https://github.com/Velkore/quote-generator.git
-```
-
-2. Install the dependencies:
-
-```
-npm install
-```
+1. Clone this repository using `git clone https://github.com/Velkore/quote-generator.git`
+2. Navigate to the project directory: `cd quote-generator`
+3. Install dependencies using `npm install`
 
 ## Usage
 
-To start the development server, run:
+Start the application in development mode by running:
 
 ```
 npm run dev
 ```
 
-This starts the app at `http://localhost:3000`. The app will automatically reload if you make any changes to the source code.
+The application will be available at [http://localhost:5173](http://localhost:5173).
 
-To build the app for production, run:
+To build the application for production, use:
 
 ```
 npm run build
 ```
 
-This creates a `dist` directory with the built app files.
+This will generate an optimized and minified build in the `/dist` directory.
 
-To preview the built app, run:
+You can preview the production build by running:
 
 ```
 npm run preview
 ```
 
-This starts a local server that serves the built app.
-
 ## Dependencies
 
-This app has the following dependencies:
+This project uses the following dependencies:
 
-- bootstrap
-- @popperjs/core
-- react
-- react-bootstrap
-- react-dom
-
-These dependencies are installed automatically when you run `npm install`.
+- [@popperjs/core](https://popper.js.org) - for positioning popovers and tooltips
+- [axios](https://github.com/axios/axios) - for making HTTP requests
+- [bootstrap](https://getbootstrap.com) - for styling the application
+- [react](https://reactjs.org) - for building UI components
+- [react-bootstrap](https://react-bootstrap.github.io) - for easy integration of Bootstrap in React
+- [react-dom](https://reactjs.org/docs/react-dom.html) - for rendering React components in the browser
 
 ## Dev Dependencies
 
-This app has the following dev dependencies:
+This project uses the following dev dependencies:
 
-- @types/react
-- @types/react-dom
-- @vitejs/plugin-react
-- vite
-
-These dev dependencies are installed automatically when you run `npm install`.
-
-## License
-
-This app is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
+- [@types/react](https://www.npmjs.com/package/@types/react) - for providing TypeScript definitions for React
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) - for providing TypeScript definitions for React DOM
+- [@vitejs/plugin-react](https://github.com/vitejs/vite/tree/main/packages/plugin-react) - for enabling React support in Vite
+- [vite](https://vitejs.dev) - for building and serving the application in development and production
