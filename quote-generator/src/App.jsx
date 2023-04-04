@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-light">"Quote Generator"</h1>
+      <h2 className="title text-center">"QuoteMe"</h2>
       {isSuccess && (
         <Alert
           variant="success"

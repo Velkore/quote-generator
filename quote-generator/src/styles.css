@@ -1,0 +1,14 @@
+body {
+    background-image: url('./assets/background.jpg');
+    background-color: #3a3939;
+}
+
+.title {
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    color: #fdf2e8;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #ffe9c2;
+    background-color: rgba(0, 0, 0, 0.6); /* add a dark gray background with opacity */
+    padding: 10px;
+  }
