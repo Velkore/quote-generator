@@ -38,6 +38,30 @@ app.post("/api/quotes", async (req, res) => {
   }
 });
 
+app.delete("/api/quotes/:id", async (req, res) => {
+  const id = Number.parseInt(req.params.id);
+  if (!Number.isInteger(id)) {
+    return res.status(400).send("Invalid ID");
+  }
+
+  try {
+    const { rows } = await pool.query(
+      "DELETE FROM quotes WHERE id = $1 RETURNING *",
+      [id]
+    );
+    const deletedQuote = rows[0];
+    console.log(deletedQuote);
+    if (deletedQuote) {
+      res.send(deletedQuote);
+    } else {
+      res.status(404).send("No quote found with that ID");
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
 app.listen(5000, () => {
   console.log("Server started on port 5000");
 });
