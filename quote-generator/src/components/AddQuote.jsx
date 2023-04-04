@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dropdown, Modal, Button, Form, Alert } from "react-bootstrap";
+import { Dropdown, Modal, Button, Form } from "react-bootstrap";
 import axios from "axios";
 
 function AddQuote(props) {
@@ -8,20 +8,20 @@ function AddQuote(props) {
   const handleShow = () => setShow(true);
 
   const handleSubmit = () => {
-    const author = document.getElementById("formItemAuth").value;
-    const content = document.getElementById("formItemContent").value;
+    const author = document.getElementById("formAddAuthor").value;
+    const content = document.getElementById("formAddQuote").value;
     axios
       .post("http://localhost:5000/api/quotes", { author, content })
       .then((response) => {
         //console.log(response);
         props.refreshList();
+        props.setIsSuccess(true);
+        setTimeout(() => props.setIsSuccess(false), 3000);
       })
       .catch((error) => {
         console.log(error);
       });
     setShow(false);
-    props.setIsSuccess(true);
-    setTimeout(() => props.setIsSuccess(false), 3000);
   };
 
   return (
@@ -35,11 +35,11 @@ function AddQuote(props) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="formItemAuth">
+            <Form.Group controlId="formAddAuthor">
               <Form.Label>Author</Form.Label>
               <Form.Control type="text" placeholder="Enter author name" />
             </Form.Group>
-            <Form.Group controlId="formItemContent">
+            <Form.Group controlId="formAddQuote">
               <Form.Label>Quote</Form.Label>
               <Form.Control type="text" placeholder="Enter quote" />
             </Form.Group>

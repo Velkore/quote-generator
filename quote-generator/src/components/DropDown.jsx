@@ -2,6 +2,7 @@ import React from "react";
 import { ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import AddQuote from "./AddQuote";
 import DeleteQuote from "./DeleteQuote";
+import UpdateQuote from "./UpdateQuote";
 
 function DropMenu(props) {
   return (
@@ -23,7 +24,11 @@ function DropMenu(props) {
           backendData={props.backendData}
           refreshList={props.customQuotes}
         />
-        <Dropdown.Item as="button">Update</Dropdown.Item>
+        <UpdateQuote
+          refreshList={props.customQuotes}
+          setIsSuccess={props.setIsSuccess}
+          backendData={props.backendData}
+        />
         <Dropdown.Divider />
         <Dropdown.Item as="button" onClick={props.handleClick}>
           Random Quote

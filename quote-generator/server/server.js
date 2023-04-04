@@ -62,6 +62,46 @@ app.delete("/api/quotes/:id", async (req, res) => {
   }
 });
 
+app.patch("/api/quotes/:id", (req, res, next) => {
+  const id = Number.parseInt(req.params.id);
+  const { author, content } = req.body;
+
+  if (!Number.isInteger(id)) {
+    res.status(400).send("No quote found with that ID");
+  }
+
+  pool.query("SELECT * FROM quotes WHERE id = $1", [id], (err, result) => {
+    if (err) {
+      return next(err);
+    }
+
+    const quote = result.rows[0];
+
+    if (!quote) {
+      return res.status(404).send("No quote found with that ID");
+    } else {
+      const updatedAuthor = author || quote.author;
+      const updatedQuote = content || quote.content;
+      console.log(
+        `Updated Author : ${updatedAuthor}. Updated quote : ${updatedQuote}`
+      );
+
+      pool.query(
+        "UPDATE quotes SET author = $1, content = $2 WHERE id = $3 RETURNING *",
+        [updatedAuthor, updatedQuote, id],
+        (err, data) => {
+          if (err) {
+            return next(err);
+          }
+
+          const updatedQuote = data.rows[0];
+          return res.send(updatedQuote);
+        }
+      );
+    }
+  });
+});
+
 app.listen(5000, () => {
   console.log("Server started on port 5000");
 });

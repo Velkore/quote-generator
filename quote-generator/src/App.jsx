@@ -1,9 +1,3 @@
-// External API Endpoint : https://api.quotable.io
-
-// TODO :
-// - Create a dropdown component for the following operations :
-//        - Update a record in local database using a form
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -17,7 +11,7 @@ function App() {
   const [quote, setQuote] = useState({});
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const updateQuote = async () => {
+  const randomQuote = async () => {
     try {
       const response = await axios.get("https://api.quotable.io/random");
       const data = response.data;
@@ -40,7 +34,7 @@ function App() {
   };
 
   useEffect(() => {
-    updateQuote();
+    randomQuote();
     customQuotes();
   }, []);
 
@@ -59,12 +53,12 @@ function App() {
         </Alert>
       )}
       <DropMenu
-        handleClick={updateQuote}
+        handleClick={randomQuote}
         customQuotes={customQuotes}
         backendData={backendData}
         setIsSuccess={setIsSuccess}
       />
-      <QuoteBlock update={updateQuote} quote={quote} />
+      <QuoteBlock update={randomQuote} quote={quote} />
       <QuotesList backendData={backendData} />
     </div>
   );
